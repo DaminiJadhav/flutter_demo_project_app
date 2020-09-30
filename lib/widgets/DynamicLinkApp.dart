@@ -175,8 +175,6 @@ class _DynamicLinkScreen  extends StatelessWidget{
         child: Text('Hello, World!'),
       ),
     );
-    // TODO: implement build
-    throw UnimplementedError();
 
   }
 

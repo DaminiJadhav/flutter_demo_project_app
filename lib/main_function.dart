@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterdemoprojectapp/colors/MyColors.dart';
 
 
+import 'api/putApi/put_post_ramumunimji_api/update_profile.dart';
 import 'bloc/blocsupervisor/statemanagementfood/food_bloc_delegate.dart';
 
-import 'chatApp/chat_home_page.dart';
 import 'package:bloc/bloc.dart';
 
 
@@ -24,7 +24,7 @@ void main() {
       MaterialApp(
         debugShowCheckedModeBanner: false,
 //        home: WeatherConditionMain(weatherRepository: weatherRepository,),
-        home:ChatHomePage(),
+        home:UpdateProfile(),
 //      home: BlocProvider<HomePageBloc>(
 //        create: (BuildContext context){
 //          return HomePageBloc();
