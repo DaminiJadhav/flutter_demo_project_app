@@ -36,7 +36,7 @@ class JobPositionBloc extends Bloc<JobPositionEvent, JobPositionState> implement
        try{
          yield JobPositionStateSearching();
 
-         var result=await jobPositionRepository.searchJob(jobPositionEventSearch.jobPosition,"Remote");
+         var result=await jobPositionRepository.searchJob(jobPositionEventSearch.jobPosition,"Remoteddddddd");
          yield JobPositionStateSearched(data: result);
        }catch(e){
          print("Error ${e.toString()}");

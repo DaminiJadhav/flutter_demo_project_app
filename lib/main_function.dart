@@ -3,11 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutterdemoprojectapp/colors/MyColors.dart';
 
-
-import 'api/putApi/put_post_ramumunimji_api/update_profile.dart';
 import 'bloc/blocsupervisor/statemanagementfood/food_bloc_delegate.dart';
 
 import 'package:bloc/bloc.dart';
+
+
+import 'loader/progress_hub.dart';
 
 
 void main() {
@@ -24,7 +25,7 @@ void main() {
       MaterialApp(
         debugShowCheckedModeBanner: false,
 //        home: WeatherConditionMain(weatherRepository: weatherRepository,),
-        home:UpdateProfile(),
+        home:ProgressHubExample(),
 //      home: BlocProvider<HomePageBloc>(
 //        create: (BuildContext context){
 //          return HomePageBloc();

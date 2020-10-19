@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutterdemoprojectapp/colors/MyColors.dart';
 
 import 'FormScreenBloc.dart';
 import 'FormScreenEvent.dart';
@@ -59,7 +60,9 @@ class _FormMainScreenState extends State<FormMainScreen> {
                 cubit: this._bloc,
                 builder: (context, state) {
                   if (state.isBusy) {
-                    return CircularProgressIndicator();
+                    return CircularProgressIndicator(
+                      backgroundColor: MyColors.white,
+                    );
                   }
 
                   return Column(
