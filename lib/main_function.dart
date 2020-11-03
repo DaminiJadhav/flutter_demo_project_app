@@ -8,7 +8,7 @@ import 'bloc/blocsupervisor/statemanagementfood/food_bloc_delegate.dart';
 import 'package:bloc/bloc.dart';
 
 
-import 'loader/progress_hub.dart';
+import 'getlocation/GetCurrentLocation.dart';
 
 
 void main() {
@@ -25,7 +25,7 @@ void main() {
       MaterialApp(
         debugShowCheckedModeBanner: false,
 //        home: WeatherConditionMain(weatherRepository: weatherRepository,),
-        home:ProgressHubExample(),
+        home:GetCurrentLocation(),
 //      home: BlocProvider<HomePageBloc>(
 //        create: (BuildContext context){
 //          return HomePageBloc();

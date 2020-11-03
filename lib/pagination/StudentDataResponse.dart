@@ -1,7 +1,6 @@
 
 
 
-import 'package:flutter/cupertino.dart';
 
 
 
@@ -182,7 +181,7 @@ class Location {
   String state;
   String country;
   dynamic postcode;
-  Coordinates coordinates;
+  Coordinates1 coordinates;
   Timezone timezone;
 
   factory Location.fromJson(Map<String, dynamic> json) => Location(
@@ -191,7 +190,7 @@ class Location {
     state: json["state"],
     country: json["country"],
     postcode: json["postcode"],
-    coordinates: Coordinates.fromJson(json["coordinates"]),
+    coordinates: Coordinates1.fromJson(json["coordinates"]),
     timezone: Timezone.fromJson(json["timezone"]),
   );
 
@@ -206,8 +205,8 @@ class Location {
   };
 }
 
-class Coordinates {
-  Coordinates({
+class Coordinates1 {
+  Coordinates1({
     this.latitude,
     this.longitude,
   });
@@ -215,7 +214,7 @@ class Coordinates {
   String latitude;
   String longitude;
 
-  factory Coordinates.fromJson(Map<String, dynamic> json) => Coordinates(
+  factory Coordinates1.fromJson(Map<String, dynamic> json) => Coordinates1(
     latitude: json["latitude"],
     longitude: json["longitude"],
   );

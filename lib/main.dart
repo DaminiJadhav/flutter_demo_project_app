@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterdemoprojectapp/widgets/ScrollingSilverBar.dart';
-import 'package:flutterdemoprojectapp/widgets/SetgetSharedPreferencesData.dart';
-import 'package:flutterdemoprojectapp/widgets/SharedPreferencesApp.dart';
-
-import 'designs/Border&BorderRadius.dart';
+import 'shimmer/ShimmerApp.dart';
 
 void main() {
 //  Bloc.observer = SimpleBlocObserver();
-  runApp(SharedPreferencesApp());
+  runApp(ShimmerApp());
 }
 
 class MyApp extends StatelessWidget {
