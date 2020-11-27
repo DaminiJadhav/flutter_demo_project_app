@@ -152,6 +152,7 @@ class _DynamicLinkAppState extends State<DynamicLinkApp> {
           }
      );
 
+//     final PendingDynamicLinkData data = await FirebaseDynamicLinks.instance.retrieveDynamicLink();
      final PendingDynamicLinkData data=await FirebaseDynamicLinks.instance.getInitialLink();
      final Uri deeplink=data?.link;
      print("DeepLink $deeplink");

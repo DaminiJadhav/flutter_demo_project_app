@@ -32,7 +32,7 @@ class BackDropFilterApp_Stack extends StatelessWidget {
                 height: _height,
                 fit: BoxFit.cover,
               ),
-          FlutterLogo(size: 80, colors: Colors.red),
+          FlutterLogo(size: 80, ),
           Container(
             width: 200,
             height: _height,

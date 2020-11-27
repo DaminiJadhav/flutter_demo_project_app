@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 import 'package:flutterdemoprojectapp/colors/MyColors.dart';
+import 'package:flutterdemoprojectapp/payment.dart';
+
 
 import 'bloc/blocsupervisor/statemanagementfood/food_bloc_delegate.dart';
 
 import 'package:bloc/bloc.dart';
 
-
-import 'getlocation/GetCurrentLocation.dart';
 
 
 void main() {
@@ -25,14 +26,14 @@ void main() {
       MaterialApp(
         debugShowCheckedModeBanner: false,
 //        home: WeatherConditionMain(weatherRepository: weatherRepository,),
-        home:GetCurrentLocation(),
+//        home:UploadImagePage(),
 //      home: BlocProvider<HomePageBloc>(
 //        create: (BuildContext context){
 //          return HomePageBloc();
 //        },
 //          child:HomePage() ,
 //    ),
-//      home: JobPositionMainPage(),
+      home: SquarePaymentExample(),
 
 //      home:CounterBlocUsingLibraryExample() ,
 //      home: BlocProvider<CounterBlocUsingLibrary>(
@@ -59,6 +60,11 @@ void main() {
 //        primaryIconTheme: IconThemeData(color: Colors.grey)
 
         ),
+
+//        routes: <String,WidgetBuilder>{
+//          '/':(BuildContext context) => DynamicLinkUsingFirebase(),
+//          '/welcome':(BuildContext context) => WelcomWidget()
+//        },
       )
 
   );

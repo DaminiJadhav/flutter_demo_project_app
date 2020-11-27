@@ -103,13 +103,13 @@ class _State extends State<SearchViewAppState> {
       ),
       child:Stack(
         children: <Widget>[
-      TextField(
-        controller: _searchQuery,
-        decoration: InputDecoration(
-          hintText: "Search",
+        TextField(
+          controller: _searchQuery,
+          decoration: InputDecoration(
+            hintText: "Search",
+          ),
+          textAlign: TextAlign.center,
         ),
-        textAlign: TextAlign.center,
-      ),
           IconButton(
             icon: Icon(Icons.close),
               onPressed: (){
