@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 import 'package:flutterdemoprojectapp/colors/MyColors.dart';
+import 'package:flutterdemoprojectapp/googleMap/GoogleMapActivity.dart';
 import 'package:flutterdemoprojectapp/payment.dart';
 
 
@@ -33,7 +34,7 @@ void main() {
 //        },
 //          child:HomePage() ,
 //    ),
-      home: SquarePaymentExample(),
+         home: GoogleMapActivity(),
 
 //      home:CounterBlocUsingLibraryExample() ,
 //      home: BlocProvider<CounterBlocUsingLibrary>(
