@@ -24,9 +24,9 @@ class _GoogleMapActivityState extends State<GoogleMapActivity> {
 
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
-    getLocation();
+    setState(() {
+      getLocation();
+    });
   }
 
 
@@ -34,7 +34,7 @@ class _GoogleMapActivityState extends State<GoogleMapActivity> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Google App'),),
-      body: GoogleMap(
+      body:latLng!=null ? GoogleMap(
         polylines: polyLines,
         markers: _markers,
         mapType: MapType.normal,
@@ -42,11 +42,12 @@ class _GoogleMapActivityState extends State<GoogleMapActivity> {
           target: latLng,
           zoom: 14.4748
         ),
+        myLocationEnabled: true,
         onCameraMove: onCameraMove,
         onMapCreated: (GoogleMapController controller){
           _completerController.complete(controller);
         },
-      ),
+      ): CircularProgressIndicator(),
       floatingActionButton: FloatingActionButton.extended(
         label: Text('Destination'),
         icon: Icon(Icons.directions_boat),
@@ -72,7 +73,9 @@ class _GoogleMapActivityState extends State<GoogleMapActivity> {
 
       print("getLocation : $latLng");
       _onAddMarkerButtonPressed();
-      loading = false;
+      setState(() {
+        loading = false;
+      });
     });
   }
 
@@ -92,7 +95,7 @@ class _GoogleMapActivityState extends State<GoogleMapActivity> {
   }
 
   void sendRequest() async{
-    LatLng destination=LatLng(20.008751,73.780037);
+    LatLng destination=LatLng(lat,log);
     String route=await googleMapService.getGoogleMap(latLng, destination);
     createRoute(route);
     _addMarker(destination,"KTHM Collage");
@@ -102,11 +105,17 @@ class _GoogleMapActivityState extends State<GoogleMapActivity> {
     _polyLines.add(Polyline(
       polylineId: PolylineId(latLng.toString()),
       width: 4,
-//      points: _convertToLatLng()
+      points: _convertToLatLng(_decodePoly(route))
     ));
   }
 
-  void _addMarker(LatLng destination, String s) {}
+  void _addMarker(LatLng destination, String address) {
+     _markers.add(Marker(markerId: MarkerId("112"),
+     position: destination,
+     infoWindow: InfoWindow(title: address,snippet: "go here"),
+     icon: BitmapDescriptor.defaultMarker
+     ));
+  }
 
 
   List<LatLng> _convertToLatLng(List points) {
@@ -117,5 +126,39 @@ class _GoogleMapActivityState extends State<GoogleMapActivity> {
       }
     }
     return result;
+  }
+
+  List _decodePoly(String poly) {
+    var list=poly.codeUnits;
+    var lList = new List();
+    int index = 0;
+    int len = poly.length;
+    int c = 0;
+    do{
+      var shift = 0;
+      int result = 0;
+
+      do{
+        c=list[index]-63;
+        result |=(c & 0x1F) << (shift*5);
+        index++;
+        shift++;
+
+      }while(c>=32);
+      if (result & 1 == 1) {
+        result = ~result;
+      }
+      var result1=(result>>1) * 0.00001;
+      lList.add(result1);
+      }while(index<len);
+
+    for (var i = 2; i < lList.length; i++){
+       lList[i]+=lList[i-2];
+     }
+
+
+    print(lList.toString());
+
+    return lList;
   }
 }
